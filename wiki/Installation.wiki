@@ -1,0 +1,64 @@
+#summary Installation and compile instructions
+
+=Install sma_get=
+needed packages: libaio<br>
+
+==for Ubuntu 12.04LTS==
+===also tested on Ubuntu 10.04LTS===
+{{{download the latest compiled sma_get_<version>_x86_64_Ubuntu_12_04.tgz from this site,}}}<br>
+{{{(or for 32bit systems sma_get_<version>_i386_Ubuntu_12_04.tgz)}}}<br>
+place is somewhere like /tmp<br>
+extract it:<br>
+ {{{tar xzvf sma_get_<version>_x86_64_Ubuntu_12_04.tgz}}}<br>
+run the install script:<br>
+ sudo ./install.sh<br>
+
+==For other Linux distributions:==
+===compiling and installing YASDI===
+needed packages: gcc cmake libaio<br>
+Download YASDI from the SMA site:<br>
+{{{http://www.sma.de/en/products/monitoring-systems/yasdi.html}}}<br>
+{{{extract it to /usr/local/src/libyasdi_1_8_1}}}<br>
+ {{{cd /usr/local/src/libyasdi_1_8_1/}}}<br>
+ {{{cd projects/generic-cmake}}}<br>
+ {{{mkdir build-gcc}}}<br>
+ {{{cd build-gcc}}}<br>
+ {{{cmake ..}}}<br>
+ {{{make}}}<br>
+ {{{sudo make install}}}<br>
+ {{{export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib}}}<br>
+ {{{sudo ldconfig /usr/local/lib}}}<br>
+<br>
+test it:<br>
+ {{{yasdishell /etc/yasdi.ini }}}<br>
+<br>
+
+===compiling and installing sma_get===
+{{{download the latest sma_get_<version>_sources.tgz source from this site}}}<br>
+extract it:<br>
+ {{{cd /usr/local/src/libyasdi_1_8_1/}}}<br>
+ {{{tar xzvf <location>/sma_get_<version>_sources.tgz}}}<br>
+ {{{cd /usr/local/src/libyasdi_1_8_1/sma_get<version>}}}<br>
+ {{{sudo ./make.sh}}}
+
+
+==example for /etc/yasdi.ini==
+ {{{[DriverModules]}}}<br>
+ {{{ Driver0=yasdi_drv_serial}}}<br>
+ {{{[COM1]}}}<br>
+ {{{ Device=/dev/ttyUSB0}}}<br>
+ {{{ Media=RS485}}}<br>
+ {{{ Baudrate=1200}}}<br>
+ {{{ Protocol=SMANet}}}<br>
+ {{{[Misc]}}}<br>
+ {{{  DebugOutput=/dev/stderr}}}<br>
+
+
+==compiling, installing and generating your own distribution==
+{{{download the latest sma_get_<version>_sources.tgz source from this site}}}<br>
+extract it:<br>
+ {{{cd /usr/local/src/libyasdi_1_8_1/}}}<br>
+ {{{tar xzvf <location>/sma_get_<version>_sources.tgz}}}<br>
+ {{{cd /usr/local/src/libyasdi_1_8_1/sma_get<version>}}}<br>
+ {{{change PACKAGE_PAD in make_distribution.sh to your own choice}}}<br> 
+ {{{sudo ./make_distribution.sh}}}
