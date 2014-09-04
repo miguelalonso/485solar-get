@@ -16,7 +16,7 @@ Options:<br>
  -s show possible status fields<br>
  -r show state of Daemon<br>
  -S synchrone detection, default is asynchrone<br>
- -D start sma_get as daemon<br>
+ -D start 485solar-get as daemon<br>
  -m monitor loop<br>
  -x send exit to daemon<br>
  -n0-9 deviceNr, default -n0<br>
