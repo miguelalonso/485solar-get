@@ -1,15 +1,15 @@
 #summary Installation and compile instructions
 
-=Install sma_get=
+=Install 485solar-get=
 needed packages: libaio<br>
 
 ==for Ubuntu 12.04LTS==
 ===also tested on Ubuntu 10.04LTS===
-{{{download the latest compiled sma_get_<version>_x86_64_Ubuntu_12_04.tgz from this site,}}}<br>
-{{{(or for 32bit systems sma_get_<version>_i386_Ubuntu_12_04.tgz)}}}<br>
+{{{download the latest compiled 485solar-get <version>_x86_64_Ubuntu_12_04.tgz from this site,}}}<br>
+{{{(or for 32bit systems 485solar-get_<version>_i386_Ubuntu_12_04.tgz)}}}<br>
 place is somewhere like /tmp<br>
 extract it:<br>
- {{{tar xzvf sma_get_<version>_x86_64_Ubuntu_12_04.tgz}}}<br>
+ {{{tar xzvf 485solar-get_<version>_x86_64_Ubuntu_12_04.tgz}}}<br>
 run the install script:<br>
  sudo ./install.sh<br>
 
@@ -33,12 +33,12 @@ test it:<br>
  {{{yasdishell /etc/yasdi.ini }}}<br>
 <br>
 
-===compiling and installing sma_get===
-{{{download the latest sma_get_<version>_sources.tgz source from this site}}}<br>
+===compiling and installing 485solar-get===
+{{{download the latest 485solar-get_<version>_sources.tgz source from this site}}}<br>
 extract it:<br>
  {{{cd /usr/local/src/libyasdi_1_8_1/}}}<br>
- {{{tar xzvf <location>/sma_get_<version>_sources.tgz}}}<br>
- {{{cd /usr/local/src/libyasdi_1_8_1/sma_get<version>}}}<br>
+ {{{tar xzvf <location>/485solar-get_<version>_sources.tgz}}}<br>
+ {{{cd /usr/local/src/libyasdi_1_8_1/sma_485solar-get_<version>}}}<br>
  {{{sudo ./make.sh}}}
 
 
@@ -55,10 +55,10 @@ extract it:<br>
 
 
 ==compiling, installing and generating your own distribution==
-{{{download the latest sma_get_<version>_sources.tgz source from this site}}}<br>
+{{{download the latest 485solar-get_<version>_sources.tgz source from this site}}}<br>
 extract it:<br>
  {{{cd /usr/local/src/libyasdi_1_8_1/}}}<br>
- {{{tar xzvf <location>/sma_get_<version>_sources.tgz}}}<br>
- {{{cd /usr/local/src/libyasdi_1_8_1/sma_get<version>}}}<br>
+ {{{tar xzvf <location>/485solar-get_<version>_sources.tgz}}}<br>
+ {{{cd /usr/local/src/libyasdi_1_8_1/485solar-get_<version>}}}<br>
  {{{change PACKAGE_PAD in make_distribution.sh to your own choice}}}<br> 
  {{{sudo ./make_distribution.sh}}}
