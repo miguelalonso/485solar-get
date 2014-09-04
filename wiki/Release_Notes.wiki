@@ -1,0 +1,46 @@
+=v0.91 2012-10-14 beta version=
+initial test version<br>
+<br>
+=v0.92 2012-10-15 beta version=
+introduced: -b option<br>
+this the same as -d (datacollecting) but extended with debug info.<br>
+debug info is send to stderr<br>
+<br>
+Device-scan is now async, with a wait loop after it.<br>
+This not optimal yet, but it is much faster<br>
+<br>
+=v0.93 2012-10-16 beta version=
+max exit in detection waitloop, prevents for endless loop<br>
+<br>
+=v0.94 2012-10-21 beta version=
+- mutiple inverters (-n)<br>
+- improved debugging options<br>
+- date and events printout with comments (-c)<br>
+- show possible status fields (-s)<br>
+- some minor bigfixes<br>
+<br>
+=v0.95 2012-10-24 beta version=
+- minor bugfixes<br>
+- include yasdi libs in compiled version<br>
+- install.sh and make_distribution.sh scripts added<br>
+<br>
+=v0.972 2012-11-28 beta version=
+- Pdc in stead of Pac (bug)<br>
+- possible to do a synchronous call in stead off async.<br>
+- deamon mode, will speed-up requests<br>
+- monitor mode added<br>
+- much more debugging<br>
+- send stop signal to the daemon<br>
+- requesting the daemon state<br>
+<br>
+=v0.980 2012-11-29 beta version=
+- deamon request for multiple sma inverters<br>
+<br>
+=v0.981 2012-12-02 beta version=
+- minor bug-fix for 32bit compile<br>
+<br>
+=v0.982 2013-02-13 beta version=
+- not existing inverter in daemon mode will result as 0, 
+- bugfix for coredump with some SMA models
+- detection of A or mA, output will be in Amps
+<br>
