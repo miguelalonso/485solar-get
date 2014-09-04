@@ -3,22 +3,22 @@
 = general =
 When encountering issues, first every should be fine without using the Daemon mode.<br>
 stop the daemon with<br>
-sma_get -x<br>
+485solar-get -x<br>
 be shure there are no alter commands running, so stop all software which is using the same interface, like 123solar, etc.<br>
 
 = bind address in use =
-If you change the user which sma_get (and Daemon) runs, you have to remove the socket file:<br>
-rm -f /var/tmp/sma_get_socket<br>
+If you change the user which 485solar-get (and Daemon) runs, you have to remove the socket file:<br>
+rm -f /var/tmp/485solar-get_socket<br>
 
-= debug sma_get =
+= debug 485solar-get =
 use the -b option to show debug output:<br>
-sma_get -s -b <br>
+485solar-get -s -b <br>
 or:<br>
-sma_get -b -d -i -e -a -s <br>
+485solar-get -b -d -i -e -a -s <br>
 <br>
 try synchronous detection, by adding the -S option<br>
 
-= first test Yasdi itself, while sma_get is using its library's =
+= first test Yasdi itself, while 485solar-get is using its library's =
 yasdishell /etc/yasdi.ini<br>
 b1<br>
 when device is detected:<br>
@@ -42,7 +42,7 @@ Set baudrate:<br>
 
 ===cannot open shared object===
 if you get this message after installing the binary version:<br>
-sma_get: error while loading shared libraries: libyasdimaster.so.1: cannot open shared object file: No such file or directory<br>
+485solar-get: error while loading shared libraries: libyasdimaster.so.1: cannot open shared object file: No such file or directory<br>
 <br>
 This means /usr/local/lib is not in the library path.<br>
 there are 2 solutions:<br><br>
@@ -53,7 +53,7 @@ Make it permanent:<br>
 
 ===Debugging and tracing===
 If you can't get enough data from the -b (debug) option, you can use strace:<br>
- strace -f -o sma_get.strace sma_get -d -b<br>
-All trace info will be written to sma_get.strace<br>
+ strace -f -o 485solar-get.strace 485solar-get -d -b<br>
+All trace info will be written to 485solar-get.strace<br>
 For monitoring the serial data:<br>
- strace -s9999 -o sma_get.strace -eread,write,ioctl  sma_get -d -b<br>
+ strace -s9999 -o 485solar-get.strace -eread,write,ioctl  485solar-get -d -b<br>
