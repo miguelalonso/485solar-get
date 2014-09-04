@@ -1,0 +1,59 @@
+#summary Read this first when encountering problems
+
+= general =
+When encountering issues, first every should be fine without using the Daemon mode.<br>
+stop the daemon with<br>
+sma_get -x<br>
+be shure there are no alter commands running, so stop all software which is using the same interface, like 123solar, etc.<br>
+
+= bind address in use =
+If you change the user which sma_get (and Daemon) runs, you have to remove the socket file:<br>
+rm -f /var/tmp/sma_get_socket<br>
+
+= debug sma_get =
+use the -b option to show debug output:<br>
+sma_get -s -b <br>
+or:<br>
+sma_get -b -d -i -e -a -s <br>
+<br>
+try synchronous detection, by adding the -S option<br>
+
+= first test Yasdi itself, while sma_get is using its library's =
+yasdishell /etc/yasdi.ini<br>
+b1<br>
+when device is detected:<br>
+z<br>
+look at the outputs of:<br>
+d<br>
+a1<br>
+p1<br>
+t1 (probably empty)<br>
+
+===When the rs485 interface won't respond, try to zero it:===
+ setserial -z  /dev/ttyUSB0<br>
+Get state of rs485 device:<br>
+ setserial -G  /dev/ttyUSB0<br>
+this wil give something like:<br>
+ /dev/ttyUSB0 uart unknown port 0x0000 irq 0 baud_base 24000000 spd_normal low_latency
+Check baudrate:<br>
+ stty -F /dev/ttyUSB0<br>
+Set baudrate:<br>
+ stty -F /dev/ttyUSB0 1200<br>
+
+===cannot open shared object===
+if you get this message after installing the binary version:<br>
+sma_get: error while loading shared libraries: libyasdimaster.so.1: cannot open shared object file: No such file or directory<br>
+<br>
+This means /usr/local/lib is not in the library path.<br>
+there are 2 solutions:<br><br>
+setting the path before running, only for this session:<br>
+ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib<br>
+Make it permanent:<br>
+ sudo ldconfig /usr/local/lib<br>
+
+===Debugging and tracing===
+If you can't get enough data from the -b (debug) option, you can use strace:<br>
+ strace -f -o sma_get.strace sma_get -d -b<br>
+All trace info will be written to sma_get.strace<br>
+For monitoring the serial data:<br>
+ strace -s9999 -o sma_get.strace -eread,write,ioctl  sma_get -d -b<br>
