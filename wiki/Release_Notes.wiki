@@ -43,4 +43,6 @@ max exit in detection waitloop, prevents for endless loop<br>
 - not existing inverter in daemon mode will result as 0, 
 - bugfix for coredump with some SMA models
 - detection of A or mA, output will be in Amps
+=v1.000 2014-09-04 version=
+- New name, going to production version<br>
 <br>
