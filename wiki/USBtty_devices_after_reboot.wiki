@@ -1,0 +1,23 @@
+#Using multiple serial USB tty devices
+
+= Serial USB devices are swapped after reboot =
+
+If you use multiple serial USB adapters, it will happen tat they are assigned from /dev/USBtty1 to /dev/USBtty0 after reboot.<br> 
+
+I use a simple script, which is runned before starting 123solar and metern, this will create 2 symlink's:<br>
+ for my smart electricity meter: /dev/ttyUSBp1<br>
+ for my solar devices: /dev/ttyUSBsl<br>
+these links I configured in the applications.<br>
+run dmesg|grep ttyUSB<br>
+and see which strings you can use to see which is which.<br>
+In my case:<br>
+ usb 2-2: <b>pl2303</b> converter now attached to <b>ttyUSB0</b><br>
+ usb 3-1: <b>FTDI</b> USB Serial Device converter now attached to <b>ttyUSB1</b><br>
+
+<br>
+put this somewhere in your startup script, or in /etc/rc.local:<br>
+ rm -f /dev/ttyUSBp1 /dev/ttyUSBsl<br>
+ P1_DEV=$(dmesg|grep "to ttyUSB"|grep <b>pl2303</b> |tail -1|awk '{print $NF}')<br>
+ SL_DEV=$(dmesg|grep "to ttyUSB"|grep <b>FTDI</b> |tail -1|awk '{print $NF}')<br>
+ ln -s /dev/${P1_DEV} /dev/ttyUSBp1<br>
+ ln -s /dev/${SL_DEV} /dev/ttyUSBsl<br>
