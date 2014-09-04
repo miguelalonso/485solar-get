@@ -1,9 +1,9 @@
-#output examples for sma_get
+#output examples for 485solar-get
 
-= sma_get -d (request data) =
+= 485solar-get -d (request data) =
 20130712-15:32:55 172.000000  3.107000  534.404000  0.000000  0.000000  0.000000  234.400003  2.083000  488.000000  49.989999  91.364437  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  889.486042  0.000000  OK
 
-= sma_get -d -c (request data in column format) =
+= 485solar-get -d -c (request data in column format) =
 Date            20130712-15:39:04<br>
 Upv-Ist         V      172.000000 <br>
 Ipv             A      3.494000 <br>
@@ -27,10 +27,10 @@ E-Total         kWh    889.537042 <br>
 dummy                  0.000000 <br>
 State           OK
 
-= sma_get -e (events) =
+= 485solar-get -e (events) =
 169.000000  169.000000  0.000000  0.000000  169.000000  0.000000  0.000000  3.000000  233.900003  233.900003  233.900003  49.989999  1200.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  466.000000  0.000000  0.000000  0.000000  0.000000  0.000000  OK
 
-= sma_get -c -e (events in column format) =
+= 485solar-get -c -e (events in column format) =
 Upv-Ist         172.000000<br>
 Upv-Ist         172.000000<br>
 dummy           0.000000<br>
@@ -64,19 +64,19 @@ dummy           0.000000<br>
 dummy           0.000000<br>
 State           OK
 
-= sma_get -i (info) =
+= 485solar-get -i (info) =
 1   WR12-061 SN:2002116358<br>
 Software-BFR 4.090000 <br>
 SMA-SN 2002116358.000000 <br>
 Default 8.000000 BE/C10/11<br>
 Status Mpp<br>
 Betriebsart Mpp-Betrieb<br>
-sma_get v0.982 daemon: Running<br>
+485solar-get v1.000 daemon: Running<br>
 
-= sma_get -a (alarms) =
+= 485solar-get -a (alarms) =
 Fehler -------
 
-= sma_get -s (possible status fields) =
+= 485solar-get -s (possible status fields) =
 All possible status texts for Status:<br>
 ( 0): 'Offset'<br>
 ( 1): 'Stop'<br>
