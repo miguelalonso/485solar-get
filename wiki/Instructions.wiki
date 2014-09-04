@@ -22,18 +22,18 @@ Options:<br>
  -n0-9 deviceNr, default -n0<br>
 <br>
 <br>
-sma_get  project:  http://code.google.com/p/sma-get<br>
-123Solar project:  http://www.123solar.org<br>
-YASDI    software: http://www.sma.de/en/products/monitoring-systems/yasdi.html<br>
+485solar-get project:  http://code.google.com/p/sma-get<br>
+123Solar     project:  http://www.123solar.org<br>
+YASDI        software: http://www.sma.de/en/products/monitoring-systems/yasdi.html<br>
 <br>
 =When running 485solar-get as a daemon:=
 <br>
 The client is communicating to the sever by shared memory, actually an IPC-socket, so both should run as the same user.<br>
 <br>
 When starting daemon mode always give the highest device_nr in the command, otherwise it only communicates with the first inverter.<br>
-example if using 4 SMA inverters: sma_get -D -n3<br>
+example if using 4 SMA inverters: 485solar-get -D -n3<br>
 <br>
-A client process, such as "sma_get -d", always looks if a daemon is running, if not, it will communicate directly to the SMA device.<br>
+A client process, such as "485solar-get -d", always looks if a daemon is running, if not, it will communicate directly to the SMA device.<br>
 <br>
 The daemon will shutdown when communication to one of the inverters is interrupted.<br>
 This is because the initialization to all invertes should be done again, after one is comming back online again.<br>
