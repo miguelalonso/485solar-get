@@ -1,7 +1,7 @@
-=Command line options for sma_get=
-sma_get for 123Solar<br>
+=Command line options for 485solar-get=
+485solar-get for 123Solar<br>
 based on libyasdi from SMA Solar Technology ag<br>
-v0.980 2012-11-29 by roland@breedveld.net<br>
+v1.000 2014-09-04 by roland@breedveld.net<br>
 <br>
 Config file: /etc/yasdi.ini<br>
 <br>
@@ -26,7 +26,7 @@ sma_get  project:  http://code.google.com/p/sma-get<br>
 123Solar project:  http://www.123solar.org<br>
 YASDI    software: http://www.sma.de/en/products/monitoring-systems/yasdi.html<br>
 <br>
-=When running sma_get as a daemon:=
+=When running 485solar-get as a daemon:=
 <br>
 The client is communicating to the sever by shared memory, actually an IPC-socket, so both should run as the same user.<br>
 <br>
