@@ -1,0 +1,20 @@
+The Sunny-Boy's don't have an interface from stock, you have to buy the add-on-board for your device from SMA, the 485PB-NR or, 485PB-MS-NR.<br>
+Tip: sometimes you'll see them on ebay much cheaper.<br>
+For the server or box you can use a USB-RS485-Kabel, I bought one from Conrad, item 975604, very cheap and works out-the-box.<br>
+<br>
+Before buying, check if your Linux version will work with the serial adapter.<br>
+There are known problemens between Linux kernel  2.6.31 and serial adapters which use the PL2303 chip<br>
+<br>
+To connect to the SMA and Aurora, I used a simple cat5 cable, take 1 twisted pair for GND and another for data:<br>
+<br>
+<table border='1'>
+<tr><th>Aurora</th><th>Sunny-Boy</th><th>wire</th><th>PC</th></tr>
+<tr><td>GND</td><td>5</td><td>brown+brown-white</td><td>GND</td></tr>
+<tr><td>r+,w+</td><td>2</td><td>orange</td><td>RS485+</td></tr>
+<tr><td>r-,w-</td><td>7</td><td>orange-white</td><td>RS485-</td></tr>
+</table>
+<br>
+Mark 1, if r and w are separate, you can put + together and - together.<br>
+Mark 2, the cable should not in star, but in one line, you can add as many devices you like, but only the devices on both ends can have termination.<br>
+On all devices between, you have to switch termination off.<br>
+on some devices it's a switch close to the connector, on other devices you should remove resistors from the pcb, it should be explained in the manual.<br>
